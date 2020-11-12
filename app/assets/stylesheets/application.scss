@@ -11,3 +11,18 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+#banner-show {
+  position: relative;
+}
+
+#grid-show {
+  width: 80%;
+  position: absolute;
+  top: 280px;
+  left: 150px;
+}
+
+.small {
+  height: 250px;
+}

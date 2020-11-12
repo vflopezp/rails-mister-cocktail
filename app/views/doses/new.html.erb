@@ -1,0 +1,14 @@
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-lg-5 bg-light p-4 rounded-lg">
+      <h1 class="font-weight-bold">New dose</h1>
+      <%= simple_form_for [ @cocktail, @dose ] do |f| %>
+        <%= f.association :ingredient %>
+        <%= f.input :description %>
+        <%= f.submit "Add", class: "btn btn-success" %>
+        <%= link_to "Cancel", cocktail_path(@cocktail.id), class: "btn btn-primary" %>
+      <% end %>
+
+    </div>
+  </div>
+</div>

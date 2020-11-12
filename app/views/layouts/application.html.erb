@@ -12,6 +12,16 @@
   </head>
 
   <body>
+    <div class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid justify-content-between">
+        <%= link_to "Cocktailmania", cocktails_path, class:"navbar-brand text-dark" %>
+        <form class="form-inline my-2 my-lg-0" action="/cocktails">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search by name" aria-label="Search" name="name" value="<%= params[:name] %>">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          <button class="btn btn-outline-primary my-2 my-sm-0 mx-2"><%= link_to "Add Cocktail", new_cocktail_path %></button>
+        </form>
+      </div>
+    </div>
     <%= yield %>
   </body>
 </html>
