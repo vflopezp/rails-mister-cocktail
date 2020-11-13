@@ -4,6 +4,7 @@
       <h1 class="font-weight-bold">Add a cocktail</h1>
       <%= simple_form_for(@cocktail) do |f| %>
         <%= f.input :name %>
+        <%= f.input :photos, as: :file, input_html: { multiple: true } %>
         <%= f.submit "Create cocktail", class: "btn btn-success" %>
         <%= link_to "Cancel", cocktails_path, class: "btn btn-primary" %>
       <% end %>

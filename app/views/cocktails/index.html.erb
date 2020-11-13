@@ -1,22 +1,17 @@
-<div class="container mt-4">
-  <div class="row">
-    <div class="col-lg-12 m-2">
-      <h1 class="font-weight-bold">All our cocktails</h1>
-      <p>Find <%= @cocktails.count %> cocktails</p>
-    </div>
-  </div>
 
-  <div class="row">
-    <% @cocktails.each do |cocktail| %>
-        <div class="col-lg-4">
-          <div class="card m-2 shadow" style="width: 20rem;">
-            <img src="https://images.unsplash.com/photo-1598994392980-53a7fb033bcc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=882&q=80" alt="..." class="card-img-top small">
-            <div class="card-body bg-light border-bottom">
-              <h5 class="card-title font-weight-bold"><%= link_to cocktail.name, cocktail_path(cocktail.id), class:"font-weight-bold" %></h5>
-              <p class="card-text">Ingredients:</p>
-            </div>
-          </div>
+
+<div class="container mx-0 bg-dark">
+  <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      <% @cocktails.each do |cocktail| %>
+        <div class="carousel-item active">
+          <% if cocktail.photos.attached? %>
+            <%= cl_image_tag cocktail.photos.first.key, class:"d-block w-100" %>
+          <% else %>
+            <%= image_tag "https://images.unsplash.com/photo-1595977437232-9a0426ebfe4c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80", class:"d-block w-100" %>
+          <% end %>
         </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
