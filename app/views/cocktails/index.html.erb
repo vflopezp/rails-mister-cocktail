@@ -1,14 +1,35 @@
-
-
-<div class="container mx-0 bg-dark">
+<div class="container min-vw-100 px-0 bg-dark">
   <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
-      <% @cocktails.each do |cocktail| %>
-        <div class="carousel-item active">
+      <div class="carousel-item active">
+        <% if @cocktails.last.photos.attached? %>
+          <div class="d-flex flex-column justify-content-center align-items-center" style="height: 100vh; background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path @cocktails.last.photos.first.key,  width: 1200; %>'); background-size: cover; background-position: center;">
+            <h1 class="font-veronica big-font">Mister Cocktail</h1>
+            <br>
+            <button class="btn btn-outline-secondary btn-veronica "><%= link_to "Add Cocktail", new_cocktail_path %></button>
+          </div>
+        <% else %>
+          <div class="d-flex flex-column justify-content-center align-items-center" style="height: 100vh; background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1595977437232-9a0426ebfe4c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80'); background-size: cover; background-position: center;">
+            <h1 class="font-veronica big-font">Mister Cocktail</h1>
+            <br>
+            <button class="btn btn-outline-secondary btn-veronica "><%= link_to "Add Cocktail", new_cocktail_path %></button>
+          </div>
+        <% end %>
+      </div>
+      <% @cocktails.limit(3).each do |cocktail| %>
+        <div class="carousel-item">
           <% if cocktail.photos.attached? %>
-            <%= cl_image_tag cocktail.photos.first.key, class:"d-block w-100" %>
+            <div class="d-flex flex-column justify-content-center align-items-center" style="height: 100vh; background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path cocktail.photos.first.key %>'); background-size: cover; background-position: center;">
+              <h1 class="font-veronica big-font">Mister Cocktail</h1>
+              <br>
+              <button class="btn btn-outline-secondary btn-veronica "><%= link_to "Add Cocktail", new_cocktail_path %></button>
+            </div>
           <% else %>
-            <%= image_tag "https://images.unsplash.com/photo-1595977437232-9a0426ebfe4c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80", class:"d-block w-100" %>
+            <div class="d-flex flex-column justify-content-center align-items-center" style="height: 100vh; background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1595977437232-9a0426ebfe4c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80'); background-size: cover; background-position: center;">
+              <h1 class="font-veronica big-font">Mister Cocktail</h1>
+              <br>
+              <button class="btn btn-outline-secondary btn-veronica "><%= link_to "Add Cocktail", new_cocktail_path %></button>
+            </div>
           <% end %>
         </div>
       <% end %>

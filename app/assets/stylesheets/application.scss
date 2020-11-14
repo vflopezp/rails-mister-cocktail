@@ -11,6 +11,7 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 
 body {
   background-color: black;
@@ -27,6 +28,22 @@ body {
   left: 150px;
 }
 
-.small {
-  height: 250px;
+.btn-veronica {
+  height: 70px;
+  width: 150px;
+  border-radius: 20px;
+  border: 1px solid white;
+  a {
+    color: white;
+  }
 }
+
+.font-veronica {
+  color: white;
+  font-family: 'Permanent Marker';
+}
+
+.big-font {
+  font-size: 50px;
+}
+
